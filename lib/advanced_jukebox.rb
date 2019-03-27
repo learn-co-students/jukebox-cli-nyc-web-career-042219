@@ -3,7 +3,7 @@
 #with the correct path to this directory on your computer
 
 my_songs = {
-"Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
+"Go Go GO" => '< ./audio/Emerald-Park/01.mp3 >/jukebox-cli/audio/Emerald-Park/01.mp3',
 "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
 "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
 "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
@@ -25,6 +25,8 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
+  songs = my_songs.keys
+  songs.each { |song| puts song }
 end
 
 
@@ -36,7 +38,14 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
-  
+  puts "Please enter a song name or number:"
+  res = gets.chomp
+  if my_songs.key?(res)
+    puts "Playing #{res}"
+    system "open " << res
+  else
+    puts "Invalid input please try again"
+  end
 end
 
 def exit_jukebox
@@ -54,9 +63,9 @@ def run(my_songs)
     cmd = gets.chomp 
     case cmd
     when "list"
-      list(songs)
+      list(my_songs)
     when "play"
-      play(songs)
+      play(my_songs)
     when "help"
       help
     when "exit"
