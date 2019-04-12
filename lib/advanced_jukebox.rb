@@ -2,18 +2,23 @@
 #make sure to edit the value of each key to replace < path to this directory >
 #with the correct path to this directory on your computer
 
-# my_songs = {
-# "Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
-# "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
-# "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
-# "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
-# "Wolf" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/05.mp3',
-# "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
-# "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
-# }
+my_songs = {
+  "Go Go GO" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/audio/Emerald-Park/01.mp3',
+  "LiberTeens" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/audio/Emerald-Park/02.mp3',
+  "Hamburg" =>  '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/audio/Emerald-Park/03.mp3',
+  "Guiding Light" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/audio/Emerald-Park/04.mp3',
+  "Wolf" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/audio/Emerald-Park/05.mp3',
+  "Blue" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/jukebox-cli/audio/Emerald-Park/06.mp3',
+  "Graduation Failed" => '/Users/carlypecora/Development/code/jukebox-cli-nyc-web-career-042219/jukebox-cli/audio/Emerald-Park/07.mp3'
+}
 
 def help
   #this method should be the same as in jukebox.rb
+  puts "I accept the following commands:
+  - help : displays this help message
+  - list : displays a list of songs you can play
+  - play : lets you choose a song to play
+  - exit : exits this program"
 
 end
 
@@ -22,6 +27,12 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
+  counter = 1
+  my_songs.each do |song, path|
+    puts "#{counter}. #{song}"
+    counter +=1
+  end
+
 end
 
 
